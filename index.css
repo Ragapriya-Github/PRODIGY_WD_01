@@ -1,0 +1,568 @@
+* Basic reset */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+/* Header styling */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #88dd4f;
+    color: #fff;
+    z-index: 1000;
+    height: 130px; /* Fixed height */
+}
+
+/* Ensure content is not hidden behind the header */
+body {
+    padding-top: 60px;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Logo styling */
+.logo {
+    display: flex;
+    align-items: center; /* Center logo vertically */
+}
+
+.logo a {
+    text-decoration: none; /* Remove underline from the link */
+}
+
+.logo-img {
+    height: 100px; /* Adjust based on your design */
+    width: auto; /* Maintain aspect ratio */
+    
+}
+
+
+/* Optional: You can also add responsiveness */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 40px; /* Adjust for smaller screens */
+    }
+}
+/* Navigation links styling */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    position: relative;
+    font-size: 25px; /* Adjust font size if needed */
+}
+
+.nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Menu toggle button (for mobile) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 3px 0;
+}
+
+/* Navbar buttons styling */
+.navbar-buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-buttons .fa {
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.navbar-buttons .fa:hover {
+    color: #ddd;
+}
+
+
+/* Container for the slider */
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Slider itself */
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* Adjust based on header height */
+    padding: 0;
+}
+
+/* Slides */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Individual slide */
+.slide {
+    min-width: 100%;
+}
+
+/* Image styling */
+.slide img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area */
+    object-position: center; /* Center the image */
+}
+
+
+.slider {
+    height: 100vh; /* Full viewport height */
+}
+
+/* Adjust for mobile devices */
+@media (max-width: 768px) {
+    .slider {
+        height: auto; /* Allow height to adjust based on content */
+    }
+}
+
+
+/* Navigation buttons 
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1000;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}*/
+
+.indicators {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.indicators button {
+    background-color: #bbb;
+    border: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.indicators button.active {
+    background-color: #717171;
+    opacity: 1;
+}
+
+/* Container for Thumbnails */
+.thumbnails-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+/* Individual Thumbnail */
+.thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s;
+    border-radius: 50%; /* Make the container circular */
+    width: 150px; /* Fixed width */
+    height: 150px; /* Fixed height to maintain circle */
+}
+
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the thumbnail area */
+    border-radius: 8px; /* Make the image circular */
+}
+
+.thumbnail p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold; /* Optional: Makes text bold */
+}
+
+/* Optional: Hover effect for thumbnails */
+.thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Trending Searches Section */
+.trending-searches {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.trending-searches h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.trending-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.trending-item {
+    background-color: #b3ecc4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    padding: 10px;
+}
+
+.trending-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.trending-item p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.trending-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Return Gift Section */
+.return-gift {
+    padding: 40px 20px;
+    background-color: #ffffff; 
+    text-align: center;
+}
+
+.return-gift-container {
+    position: relative;
+    display: inline-block;
+}
+
+.return-gift-image {
+    width: 100%;
+    max-width: 15000px; /* Adjust as needed */
+    height: 500px;
+    border-radius: 8px;
+    display: block;
+}
+
+.enquire-button {
+    position: absolute;
+    bottom: 20px; /* Distance from the bottom of the container */
+    left: 20px; /* Distance from the left of the container */
+    padding: 10px 20px;
+    background-color: #00796b; /* Dark teal background */
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 2; /* Ensure the button is above the image */
+}
+
+.enquire-button:hover {
+    background-color: #004d40; /* Darker teal for hover effect */
+    transform: scale(1.05);
+}
+
+/* Promotional Banner Styles */
+.promotion-banner {
+    background: linear-gradient(to right, #4caf50, #364e37); /* Gradient background */
+    background-image: url('banner.png'); /* Optional: Add an image */
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+    color: #000000;
+    text-align: center;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.promotion-banner::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Dark overlay for better text readability */
+    z-index: 1;
+}
+
+.promotion-content {
+    position: relative;
+    z-index: 2;
+}
+
+.promotion-banner h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 4px rgba(107, 94, 94, 0.6); /* Adds shadow for text readability */
+}
+
+.promotion-banner p {
+    font-size: 30px;
+    line-height: 1.6;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(65, 60, 60, 0.5); /* Subtle text shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .promotion-banner {
+        padding: 40px 10px;
+    }
+
+    .promotion-banner h2 {
+        font-size: 28px;
+    }
+
+    .promotion-banner p {
+        font-size: 16px;
+    }
+}
+
+
+.testimonials {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background: #ffffff;
+    padding: 20px 0;
+}
+
+.testimonial-slider {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.testimonial-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.testimonial {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+    background: #a3e2bb;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 0 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.testimonial-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.testimonial-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.testimonial-dot.active {
+    background-color: #717171;
+}
+
+/* Social Media Share Section */
+.social-share {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.social-share h2 {
+    font-size: 28px;
+    color: #00796b;
+}
+
+.social-share p {
+    font-size: 18px;
+    color: #004d40;
+}
+
+/* Social Media Icons */
+.social-media {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0; /* Reduced padding */
+    background-color: #88dd4f;
+    gap: 20px;
+    height: 50px; /* Fixed height to fit within the viewport */
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 35px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #ddd;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 250px;
+        background-color: #88dd4f;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar-buttons {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #88dd4f;
+        padding: 10px 0;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .prev, .next {
+        font-size: 20px;
+        padding: 8px;
+    }
+    .full-screen-image {
+        position: absolute; /* Position the image absolutely */
+        top: 0; /* Align to the top of the viewport */
+        left: 0; /* Align to the left of the viewport */
+        width: 100vw; /* 100% of viewport width */
+        height: 100vh; /* 100% of viewport height */
+        object-fit: cover; /* Ensure the image covers the container without distortion */
+        z-index: -1; /* Place the image behind other content */
+    }
+} 
